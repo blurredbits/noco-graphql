@@ -1,4 +1,4 @@
-##NoCo Javascript GraphQL Node Server
+## NoCo Javascript GraphQL Node Server
 
 This is the Node/Express based server for the NoCo Javascript GraphQL demo.
 

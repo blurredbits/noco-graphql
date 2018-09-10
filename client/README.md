@@ -1,4 +1,4 @@
-##NoCo Javascript GraphQL React Client
+## NoCo Javascript GraphQL React Client
 
 This is the React client for the NoCo Javascript GraphQL demo.
 

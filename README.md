@@ -1,4 +1,4 @@
-##NoCo Javascript GraphQL Demo Files
+## NoCo Javascript GraphQL Demo Files
 
 Thanks for attending the September 10, 2018 NoCo JS Meetup. Here are the demo files for the talk.
 
