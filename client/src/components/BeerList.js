@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { graphql } from "react-apollo";
-import { getBeersQuery } from "../queries";
+import React, { Component } from 'react';
+import { graphql, Query } from 'react-apollo';
+import { getBeersQuery } from '../queries';
 
-import BeerDetails from "./BeerDetails";
+import BeerDetails from './BeerDetails';
 
 class BeerList extends Component {
   constructor(props) {
@@ -20,10 +20,7 @@ class BeerList extends Component {
       if (data.beers) {
         return data.beers.map(beer => {
           return (
-            <li
-              key={beer.id}
-              onClick={e => this.setState({ selected: beer.id })}
-            >
+            <li key={beer.id} onClick={e => this.setState({ selected: beer.id })}>
               {beer.name}
             </li>
           );
@@ -37,7 +34,21 @@ class BeerList extends Component {
   render() {
     return (
       <div>
-        <ul id="beer-list">{this.displayBeers()}</ul>
+        <ul id="beer-list">
+          <Query query={getBeersQuery}>
+            {({ loading, error, data }) => {
+              if (loading) return <li>Loading...</li>;
+              if (error) return <li>Error!</li>;
+              return data.beers.map(beer => {
+                return (
+                  <li key={beer.id} onClick={e => this.setState({ selected: beer.id })}>
+                    {beer.name}
+                  </li>
+                );
+              });
+            }}
+          </Query>
+        </ul>
         <BeerDetails beerId={this.state.selected} />
       </div>
     );
